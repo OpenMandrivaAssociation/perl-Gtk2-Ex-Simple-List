@@ -1,7 +1,7 @@
 %define	module	Gtk2-Ex-Simple-List
 %define	name	perl-%{module}
 %define	version	0.50
-%define	release	%mkrel 4
+%define	release	%mkrel 6
 
 Name:		%{name}
 Version:	%{version}
