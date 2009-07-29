@@ -1,22 +1,22 @@
-%define	module	Gtk2-Ex-Simple-List
-%define	name	perl-%{module}
-%define	version	0.50
-%define	release	%mkrel 6
+%define	upstream_name	 Gtk2-Ex-Simple-List
+%define	upstream_version 0.50
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	A simple interface to Gtk2's complex MVC list widget
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-Source0:	http://search.cpan.org/CPAN/authors/id/R/RM/RMCFARLA/%{module}-%{version}.tar.bz2
-URL:		http://search.cpan.org/dist/%{module}
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://search.cpan.org/CPAN/authors/id/R/RM/RMCFARLA/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
 BuildRequires:	perl-Gtk2
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Gtk2 has a powerful, but complex MVC (Model, View, Controller) system used to
@@ -36,7 +36,7 @@ displayed in the list. This same mechanism can be expanded by defining
 arbitrary new column types before calling the new function.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -56,4 +56,3 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_mandir}/*/*
 %{perl_vendorlib}/Gtk2
-
