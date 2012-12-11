@@ -1,9 +1,9 @@
 %define	upstream_name	 Gtk2-Ex-Simple-List
 %define	upstream_version 0.50
 
-Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	2
 
 Summary:	A simple interface to Gtk2's complex MVC list widget
 License:	GPL+ or Artistic
@@ -11,12 +11,9 @@ Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{upstream_name}
 Source0:	http://search.cpan.org/CPAN/authors/id/R/RM/RMCFARLA/%{upstream_name}-%{upstream_version}.tar.bz2
 
-%if %{mdkversion} < 1010
 BuildRequires:	perl-devel
-%endif
-BuildRequires:	perl-Gtk2
+BuildRequires:	perl(Gtk2)
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Gtk2 has a powerful, but complex MVC (Model, View, Controller) system used to
@@ -39,20 +36,46 @@ arbitrary new column types before calling the new function.
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+perl Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
 %make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %{_mandir}/*/*
 %{perl_vendorlib}/Gtk2
+
+
+%changelog
+* Wed Jul 29 2009 Jérôme Quelin <jquelin@mandriva.org> 0.500.0-1mdv2010.0
++ Revision: 403229
+- rebuild using %%perl_convert_version
+
+* Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 0.50-6mdv2009.0
++ Revision: 257146
+- rebuild
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Wed Dec 19 2007 Guillaume Rousse <guillomovitch@mandriva.org> 0.50-4mdv2008.1
++ Revision: 133633
+- rebuild
+
+  + Thierry Vignaud <tv@mandriva.org>
+    - kill re-definition of %%buildroot on Pixel's request
+
+
+* Thu Aug 31 2006 Guillaume Rousse <guillomovitch@mandriva.org> 0.50-3mdv2007.0
+- Rebuild
+
+* Thu Aug 31 2006 Guillaume Rousse <guillomovitch@mandriva.org> 0.50-2mdv2007.0
+- Rebuild
+
+* Tue Dec 20 2005 Guillaume Rousse <guillomovitch@mandriva.org> 0.50-1mdk
+- first mdk release
+
