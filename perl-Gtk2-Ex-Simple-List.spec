@@ -2,14 +2,14 @@
 %define	upstream_version 0.50
 
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	%{upstream_version}
+Release:	5
 
 Summary:	A simple interface to Gtk2's complex MVC list widget
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://search.cpan.org/CPAN/authors/id/R/RM/RMCFARLA/%{upstream_name}-%{upstream_version}.tar.bz2
+Url:		https://metacpan.org/dist/Gtk2-Ex-Simple-List
+Source0:	https://cpan.metacpan.org/authors/id/R/RM/RMCFARLA/Gtk2-Perl-Ex/Gtk2-Ex-Simple-List-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
