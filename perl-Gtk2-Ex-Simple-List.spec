@@ -1,15 +1,13 @@
 %define	upstream_name	 Gtk2-Ex-Simple-List
-%define	upstream_version 0.50
-
 Name:		perl-%{upstream_name}
-Version:	%{upstream_version}
-Release:	5
+Version:	0.50
+Release:	6
 
 Summary:	A simple interface to Gtk2's complex MVC list widget
 License:	GPL+ or Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/Gtk2-Ex-Simple-List
-Source0:	https://cpan.metacpan.org/authors/id/R/RM/RMCFARLA/Gtk2-Perl-Ex/Gtk2-Ex-Simple-List-%{upstream_version}.tar.gz
+Source0:	https://cpan.metacpan.org/authors/id/R/RM/RMCFARLA/Gtk2-Perl-Ex/Gtk2-Ex-Simple-List-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -34,7 +32,7 @@ displayed in the list. This same mechanism can be expanded by defining
 arbitrary new column types before calling the new function.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL INSTALLDIRS=vendor
@@ -54,9 +52,7 @@ perl Makefile.PL INSTALLDIRS=vendor
 %changelog
 * Wed Jul 29 2009 Jérôme Quelin <jquelin@mandriva.org> 0.500.0-1mdv2010.0
 + Revision: 403229
-- rebuild using %%perl_convert_version
-
-* Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 0.50-6mdv2009.0
+- rebuild using %0.50 Thu Jul 31 2008 Thierry Vignaud <tv@mandriva.org> 0.50-6mdv2009.0
 + Revision: 257146
 - rebuild
 
